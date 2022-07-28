@@ -17,25 +17,33 @@ module.exports = {
     'sourceType': 'module'
   },
   'plugins': [
+    'import',
     'react',
     '@typescript-eslint'
   ],
   'rules': {
-    'indent': [
-      'error',
-      2
+    'import/no-duplicates': 'warn',
+    'import/no-useless-path-segments': 'warn',
+    'import/order': [
+      'warn',
+      {
+        pathGroups: [
+          {
+            pattern: '@/**',
+            group: 'internal',
+          },
+        ],
+        alphabetize: {
+          order: 'asc',
+          caseInsensitive: true,
+        },
+        'newlines-between': 'never',
+        groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index', 'type'],
+      },
     ],
-    'linebreak-style': [
-      'error',
-      'unix'
-    ],
-    'quotes': [
-      'error',
-      'single'
-    ],
-    'semi': [
-      'error',
-      'always'
-    ]
+    'indent': ['error', 2],
+    'linebreak-style': ['error', 'unix'],
+    'quotes': ['error', 'single'],
+    'semi': ['error', 'always']
   }
 };
