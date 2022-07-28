@@ -1,29 +1,34 @@
 module.exports = {
   'env': {
     'browser': true,
-    'es2021': true
+    'es2021': true,
   },
   'extends': [
     'eslint:recommended',
+    'plugin:@typescript-eslint/recommended',
     'plugin:react/recommended',
     'plugin:react-hooks/recommended',
-    'plugin:@typescript-eslint/recommended'
+    'plugin:prettier/recommended',
   ],
   'parser': '@typescript-eslint/parser',
   'parserOptions': {
     'ecmaFeatures': {
-      'jsx': true
+      'jsx': true,
     },
     'ecmaVersion': 'latest',
-    'sourceType': 'module'
+    'sourceType': 'module',
   },
   'plugins': [
     'import',
     'react',
     'unused-imports',
-    '@typescript-eslint'
+    '@typescript-eslint',
   ],
   'rules': {
+    '@typescript-eslint/no-empty-interface': 'warn',
+    '@typescript-eslint/no-explicit-any': 'warn',
+    '@typescript-eslint/no-shadow': 'error',
+    'comma-dangle': ['error', 'always-multiline'],
     'import/no-duplicates': 'warn',
     'import/no-useless-path-segments': 'warn',
     'import/order': [
@@ -45,12 +50,22 @@ module.exports = {
     ],
     'indent': ['error', 2],
     'linebreak-style': ['error', 'unix'],
-    'quotes': ['error', 'single'],
+    'no-console': [
+      'warn',
+      {
+        allow: ['error'],
+      },
+    ],
+    'quotes': ['error', 'single', {
+      avoidEscape: true,
+    }],
+    'react/no-unescaped-entities': 'error',
+    'react/prop-types': 'off',
     'semi': ['error', 'always'],
     'unused-imports/no-unused-imports': 'error',
     'unused-imports/no-unused-vars': [
       'warn',
-      { 'vars': 'all', 'varsIgnorePattern': '^_', 'args': 'after-used', 'argsIgnorePattern': '^_' }
-    ]
-  }
+      { 'vars': 'all', 'varsIgnorePattern': '^_', 'args': 'after-used', 'argsIgnorePattern': '^_' },
+    ],
+  },
 };
