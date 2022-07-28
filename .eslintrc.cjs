@@ -19,6 +19,7 @@ module.exports = {
   'plugins': [
     'import',
     'react',
+    'unused-imports',
     '@typescript-eslint'
   ],
   'rules': {
@@ -44,6 +45,11 @@ module.exports = {
     'indent': ['error', 2],
     'linebreak-style': ['error', 'unix'],
     'quotes': ['error', 'single'],
-    'semi': ['error', 'always']
+    'semi': ['error', 'always'],
+    'unused-imports/no-unused-imports': 'error',
+    'unused-imports/no-unused-vars': [
+      'warn',
+      { 'vars': 'all', 'varsIgnorePattern': '^_', 'args': 'after-used', 'argsIgnorePattern': '^_' }
+    ]
   }
 };
