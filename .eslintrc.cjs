@@ -60,6 +60,7 @@ module.exports = {
     ],
     'react/no-unescaped-entities': 'error',
     'react/prop-types': 'off',
+    'react/react-in-jsx-scope': 'off',
     semi: ['error', 'always'],
     'unused-imports/no-unused-imports': 'error',
     'unused-imports/no-unused-vars': [
